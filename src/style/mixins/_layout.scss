@@ -1,0 +1,32 @@
+@mixin resetMarginAndPadding {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flexColumn {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin flexRow {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+@mixin relativePosition() {
+  position: relative;
+}
+
+@mixin absolutePosition() {
+  position: absolute;
+}
+
+@mixin flexAlignEnd() {
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}

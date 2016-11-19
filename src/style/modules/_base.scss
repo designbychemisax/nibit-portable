@@ -1,0 +1,16 @@
+@import "../mixins/layout";
+@import "../mixins/sizing";
+
+/* comment */
+.#{$PROJECT} {
+  &__Button {
+    height: 30px;
+    border: 1px solid #36a0e8;
+    background-color: #36a0e8;
+    color: #fff;
+    font-family: 'Signika', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 6px;
+  }
+}

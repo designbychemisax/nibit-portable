@@ -1,0 +1,49 @@
+@import "../mixins/layout";
+@import "../mixins/sizing";
+
+.#{$PROJECT} {
+
+  &__ToolBox {
+    @include relativePosition();
+    @include size(100%, 30px);
+    background: #36A0E8;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 1px solid #2f8fd0;
+  }
+
+  &__PoweredLogo {
+    @include size(72px, 20px);
+    @include absolutePosition();
+    background: no-repeat url('#{$LOGO}');
+    background-size: auto 20px;
+    display: block;
+    text-decoration: none;
+    top: 5px;
+    left: 5px;
+  }
+
+  &__ToolBoxButtons {
+    @include resetMarginAndPadding();
+    width: 100%;
+    padding-left: 85px;
+    text-align: right;
+  }
+
+  &__ToolBoxButtons > li {
+     display: inline-block;
+  }
+
+  &__ToolBoxButton--add {
+    @include size(20px, 20px);
+    border: none;
+    background: no-repeat url('#{$ADDICON}');
+  }
+
+  &__ToolBoxButton--add:hover {
+    cursor:pointer;
+  }
+
+}

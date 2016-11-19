@@ -1,0 +1,13 @@
+@import "../mixins/layout";
+@import "../mixins/sizing";
+
+.#{$PROJECT} {
+
+  &__Main {
+    @include relativePosition();
+    @include sizing_useAll();
+    @include flex();
+    @include flexColumn();
+  }
+
+}

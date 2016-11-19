@@ -1,0 +1,91 @@
+@import "../mixins/layout";
+@import "../mixins/sizing";
+
+.#{$PROJECT} {
+
+  &__BlockSelectorOverlay {
+    @include absolutePosition();
+    @include sizing_useAll();
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__BlockSelector {
+    @include absolutePosition();
+    @include resetMarginAndPadding();
+    @include flex();
+    @include flexColumn();
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #5a5a5a;
+  }
+
+  &__BlockSelectorHeader {
+    @include relativePosition();
+    @include size(100%, 30px);
+    background: #36A0E8;
+    padding: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  &__BlockSelectorBlocks {
+    flex: 1;
+  }
+
+  &__BlockSelectorBottom {
+    @include relativePosition();
+    @include size(100%, 40px);
+    background: #fff;
+    padding: 5px;
+    color: #000;
+    font-size: 16px;
+    border-top: 1px solid #e4e4e4;
+    text-align: right;
+  }
+
+  &__BlockSelectorBlocks > ul {
+    margin: 0;
+    padding: 10px;
+  }
+
+  &__BlockSelectorBlocks > ul > li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__BlockCard {
+    margin: 5px;
+    padding: 5px;
+    background: #f3f3f3;
+    border: 1px solid #dadada;
+    cursor: pointer;
+  }
+
+  &__BlockCard:hover {
+    border: 1px solid #7b7b7b;
+  }
+
+  &__BlockCardName {
+    font-size: 16px;
+    font-weight: 400;
+    color: #4a4a4a;
+  }
+
+  &__BlockCardDescription {
+    font-size: 14px;
+    color: #757575;
+    height: 14px;
+    overflow: hidden;
+  }
+
+
+
+}

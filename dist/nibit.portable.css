@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css?family=Signika:300,400");
+.NibitPortable__Main {
+  font-family: 'Signika', sans-serif;
+  font-weight: 300;
+  box-sizing: border-box; }
+.NibitPortable__Main * {
+  box-sizing: border-box; }
+
+.NibitPortable__Main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+/* comment */
+.NibitPortable__Button {
+  height: 30px;
+  border: 1px solid #36a0e8;
+  background-color: #36a0e8;
+  color: #fff;
+  font-family: 'Signika', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 6px; }
+
+.NibitPortable__ToolBox {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background: #36A0E8;
+  padding: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  border-bottom: 1px solid #2f8fd0; }
+.NibitPortable__PoweredLogo {
+  width: 72px;
+  height: 20px;
+  position: absolute;
+  background: no-repeat url("https://chemisax.com/web/downloads/nibit/nibit.logo.small.png");
+  background-size: auto 20px;
+  display: block;
+  text-decoration: none;
+  top: 5px;
+  left: 5px; }
+.NibitPortable__ToolBoxButtons {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-left: 85px;
+  text-align: right; }
+.NibitPortable__ToolBoxButtons > li {
+  display: inline-block; }
+.NibitPortable__ToolBoxButton--add {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: no-repeat url("https://chemisax.com/web/downloads/nibit/add.svg"); }
+.NibitPortable__ToolBoxButton--add:hover {
+  cursor: pointer; }
+
+.NibitPortable__Editor {
+  flex: 1;
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+
+.NibitPortable__BlockSelectorOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 1; }
+.NibitPortable__BlockSelector {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #5a5a5a; }
+.NibitPortable__BlockSelectorHeader {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background: #36A0E8;
+  padding: 5px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400; }
+.NibitPortable__BlockSelectorBlocks {
+  flex: 1; }
+.NibitPortable__BlockSelectorBottom {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  padding: 5px;
+  color: #000;
+  font-size: 16px;
+  border-top: 1px solid #e4e4e4;
+  text-align: right; }
+.NibitPortable__BlockSelectorBlocks > ul {
+  margin: 0;
+  padding: 10px; }
+.NibitPortable__BlockSelectorBlocks > ul > li {
+  display: block;
+  margin-bottom: 10px; }
+.NibitPortable__BlockCard {
+  margin: 5px;
+  padding: 5px;
+  background: #f3f3f3;
+  border: 1px solid #dadada;
+  cursor: pointer; }
+.NibitPortable__BlockCard:hover {
+  border: 1px solid #7b7b7b; }
+.NibitPortable__BlockCardName {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4a4a4a; }
+.NibitPortable__BlockCardDescription {
+  font-size: 14px;
+  color: #757575;
+  height: 14px;
+  overflow: hidden; }
+
+.NibitPortable__Block {
+  position: relative;
+  background: #43b327;
+  padding: 5px;
+  border-bottom: 1px solid #00923a;
+  color: white;
+  font-size: 16px; }
+.NibitPortable__BlockTitle {
+  cursor: move; }
+.NibitPortable__BlockToolbox {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 5px;
+  top: 5px; }
+.NibitPortable__BlockToolbox > li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px; }
+.NibitPortable__BlockToolbox > li > button {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  background-color: #53bd39;
+  border: 1px solid #267b10;
+  border-radius: 2px;
+  color: #fff;
+  overflow: hidden;
+  padding: 0; }
+.NibitPortable__BlockToolbox > li > button:hover {
+  cursor: pointer; }
+.NibitPortable__BlockSettingsField {
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: 1px solid #5ccc00;
+  margin: 5px 0 5px 0; }
+.NibitPortable__BlockSettingsFieldLabel {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  padding-left: 5px;
+  font-size: 14px;
+  margin-right: 5px; }
+.NibitPortable__BlockSettingsInput {
+  position: relative;
+  flex: 1; }
+.NibitPortable__BlockSettingsInput > input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  font-family: 'Signika', sans-serif;
+  font-size: 12px;
+  top: 0;
+  font-weight: 300;
+  left: 0;
+  padding: 0 5px 0 5px;
+  box-sizing: border-box; }
+.NibitPortable__BlockSettingsInput > input:focus {
+  outline: none; }
+.NibitPortable__PulldownOtherBlockFormSelect {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: none;
+  width: 100%;
+  margin: 0;
+  padding: 4px;
+  height: 20px; }
+.NibitPortable__PulldownOtherBlockForm {
+  padding-left: 5px;
+  margin-bottom: 5px; }
+.NibitPortable__PulldownOtherBlockFormOther {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  margin-top: 4px; }
+.NibitPortable__PulldownOtherBlockFormOther > input {
+  flex: 1;
+  background: none;
+  border: none;
+  margin-left: 5px; }
+.NibitPortable__PulldownOtherBlockFormOther > input:focus {
+  outline: none; }
+.NibitPortable__PulldownOtherBlockFormOtherLabel {
+  font-size: 14px; }
+.NibitPortable__PulldownBlockFormSelect {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: none;
+  width: 100%;
+  margin: 0;
+  padding: 4px;
+  height: 20px; }
+.NibitPortable__PulldownBlockForm {
+  padding-left: 5px;
+  margin-bottom: 5px; }
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80); }
+
+.gu-hide {
+  display: none !important; }
+
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important; }
+
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20); }
+
+/*# sourceMappingURL=nibit.portable.css.map */

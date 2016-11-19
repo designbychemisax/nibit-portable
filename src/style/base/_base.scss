@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Signika:300,400');
+
+.#{$PROJECT} {
+  &__Main {
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+  }
+
+  &__Main * {
+    box-sizing: border-box;
+  }
+}

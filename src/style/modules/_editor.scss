@@ -1,0 +1,11 @@
+@import "../mixins/layout";
+@import "../mixins/sizing";
+
+.#{$PROJECT} {
+  &__Editor {
+    flex:1;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}

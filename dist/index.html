@@ -13,9 +13,259 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
 <script src="nibit-portable.js"></script>
 <script>
+
+    var config =  [
+        {
+            name : 'Send Message',
+            type : 'send_message',
+            description: 'Send a message to slack.',
+            color: '#52cf67',
+            textColor: '#ffffff',
+            params: [
+                {
+                    name : 'to',
+                    type : 'pulldown_other',
+                    label : 'To',
+                    options: [
+                        {
+                            label: "Source",
+                            value: 'channel'
+                        },
+                        {
+                            label: "Campana",
+                            value: '@campana'
+                        },
+                        {
+                            label: "Channel",
+                            value: "%other%"
+                        }
+                    ]
+                },
+                {
+                    name: 'message',
+                    type: 'text',
+                    label: 'Message'
+                },
+                {
+                    name: 'delay',
+                    type: 'text',
+                    label: 'Delay',
+                    default: '100'
+                }
+            ]
+        },
+        {
+            name : 'Update User',
+            type : 'update_status',
+            description: 'Change the status of a user.',
+            color: '#b8aa52',
+            textColor: '#ffffff',
+            params: [
+                {
+                    name : 'slack_id',
+                    label : 'User',
+                    type : 'pulldown',
+                    default: 'campana',
+                    options: [
+                        {
+                            label: "campana",
+                            value: 'UFF876AS'
+                        },
+                        {
+                            label: "yobata",
+                            value: 'UFF876ASA'
+                        }
+                    ]
+                },
+                {
+                    name : 'comment',
+                    label : 'Comment',
+                    type: 'text'
+                },
+                {
+                    name: 'status',
+                    label: 'Status',
+                    type: 'pulldown',
+                    default: 'working',
+                    options: [
+                        {
+                            label: "Away",
+                            value: 'away'
+                        },
+                        {
+                            label: "Busy",
+                            value: 'busy'
+                        },
+                        {
+                            label: "Working",
+                            value: "working"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            name : 'Update Pickupon',
+            type : 'update_pickupon',
+            description: 'Change the status of your bot.',
+            color: '#cf7e5c',
+            textColor: '#ffffff',
+            params: [
+                {
+                    name : 'comment',
+                    label : 'Comment',
+                    type: 'text'
+                },
+                {
+                    name : 'status',
+                    label : 'Status',
+                    type: 'text',
+                    default : 'working'
+                }
+            ]
+        },
+        {
+            name : 'Update sensor',
+            type : 'set_sensor',
+            description: 'Update the value of a sensor.',
+            color: '#a247b8',
+            textColor: '#ffffff',
+            params: [
+                {
+                    name : 'name',
+                    label : 'Sensor',
+                    type : 'pulldown',
+                    default: 'toilet',
+                    options: [
+                        {
+                            label: 'Toilet',
+                            value: 'toilet'
+                        },
+                        {
+                            label: 'Canica',
+                            value: 'caninca'
+                        }
+                    ]
+                },
+                {
+                    name : 'value',
+                    label : 'Value',
+                    type: 'text'
+                }
+            ]
+        },
+        {
+            name : 'Send image',
+            type : 'send_attachment',
+            description: 'Send an image to a slack channel.',
+            color: '#3a81cf',
+            textColor: '#ffffff',
+            params: [
+                {
+                    name : 'file',
+                    label : 'File id',
+                    type : 'text'
+                },
+                {
+                    name : 'filename',
+                    label : 'Filename',
+                    type: 'text'
+                },
+                {
+                    name : 'title',
+                    label : 'Title',
+                    type: 'text'
+                },
+                {
+                    name: 'initial_comment',
+                    label : 'Comment',
+                    type: 'text'
+                },
+                {
+                    name: 'channel',
+                    label: 'Channel',
+                    type: 'text'
+                }
+            ]
+        }
+    ];
+
+    var Demo = React.createClass({
+
+        getInitialState: function () {
+            return {
+                blocks : [
+                    {
+                        action : "send_message",
+                        params : {
+                            to : '@campana',
+                            message: '%bodyと言いましたよ',
+                            delay: '300'
+                        }
+                    },
+                    {
+                        action: 'update_db',
+                        params: {}
+                    },
+                    {
+                        action : "update_status",
+                        params : {
+                            slack_id : 'UFB008A2',
+                            comment: '忙しい',
+                            status: 'away'
+                        }
+                    },
+                    {
+                        action : "update_pickupon",
+                        params : {
+                            status: 'working',
+                            comment: 'こんにちは！'
+                        }
+                    },
+                    {
+                        action : "set_sensor",
+                        params : {
+                            name : 'toilet',
+                            value : 'false'
+                        }
+                    },
+                    {
+                        action : "send_attachment",
+                        params : {
+                            file : "4dmc98ee",
+                            filename: "door.png",
+                            title: '入り口',
+                            initial_comment: '誰かいる',
+                            channel: 'random'
+                        }
+                    }
+                ]
+            };
+        },
+
+        handleChange: function (blocks) {
+            var _blocks = blocks.map(function (blocks) {
+                return {params: block.params, action: block.type};
+            });
+            this.setState({blocks:_blocks});
+        },
+
+        render : function () {
+            console.log("rn");
+            var props = {
+                config : config,
+                blocks : this.state.blocks.map(function (block) {
+                    return {type: block.action, params: block.params};
+                }),
+                onChange: this.handleChange
+            };
+            return React.createElement(NibitPortable, props);
+        }
+    });
+
     window.onload = function () {
-        var container = document.getElementById('nibit-root');
-        ReactDOM.render(React.createElement(NibitDemo), container);
+        let container = document.getElementById('nibit-root');
+        ReactDOM.render(React.createElement(Demo), container);
     }
 </script>
 </body>

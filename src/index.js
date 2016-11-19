@@ -1,84 +1,52 @@
-import {Component}      from 'react';
-import NibitPortable    from './nibit';
+import {Component}      from 'react'
+import Toolbox          from './components/Toolbox';
+import BlockSelector    from './components/BlockSelector';
+import BlockEditor      from './components/BlockEditor';
 
-import config from './utils/blocks';
-
-export default class NibitDemo extends Component {
+export default class NibitPortable extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            blocks : [
-                {
-                    action : "send_message",
-                    params : {
-                        to : '@campana',
-                        message: '%bodyと言いましたよ',
-                        delay: '300'
-                    }
-                },
-                {
-                    action: 'update_db',
-                    params: {}
-                },
-                {
-                    action : "update_status",
-                    params : {
-                        slack_id : 'UFB008A2',
-                        comment: '忙しい',
-                        status: 'away'
-                    }
-                },
-                {
-                    action : "update_pickupon",
-                    params : {
-                        status: 'working',
-                        comment: 'こんにちは！'
-                    }
-                },
-                {
-                    action : "set_sensor",
-                    params : {
-                        name : 'toilet',
-                        value : 'false'
-                    }
-                },
-                {
-                    action : "send_attachment",
-                    params : {
-                        file : "4dmc98ee",
-                        filename: "door.png",
-                        title: '入り口',
-                        initial_comment: '誰かいる',
-                        channel: 'random'
-                    }
-                }
-            ]
+            selector : false
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleAddBlock = this.handleAddBlock.bind(this);
     }
 
-    handleChange(blocks) {
-        let _blocks = blocks.map(({type, params}) => {
-            return {params, action:type};
-        });
-        this.setState({blocks:_blocks});
+    handleAddBlock(block) {
+        let blocks = [...this.props.blocks];
+        blocks.push(block);
+        this.props.onChange(blocks);
+        this.setState({selector:false});
     }
 
     render() {
-        return (
-            <NibitPortable
-                config={config}
-                blocks={this.state.blocks.map(({action, params}) => {
-                    return {params, type: action};
-                })}
-                onChange={this.handleChange}
-            />
-        );
+        let {config, blocks} = this.props;
+        let {selector} = this.state;
+        return(
+            <div className="NibitPortable__Main">
+                <BlockSelector
+                    visible={selector}
+                    blocks={config}
+                    onSelect={this.handleAddBlock}
+                    onClose={() => this.setState({selector:false})}
+                />
+                <Toolbox
+                    onAddBlock={() => this.setState({selector:true})}
+                />
+                <BlockEditor
+                    config={config}
+                    blocks={blocks}
+                    onChange={this.props.onChange}
+                />
+            </div>
+        )
     }
 
 }
 
+module.exports = NibitPortable;
+
 if (window) {
-    window.NibitDemo = NibitDemo;
+    window.NibitPortable = NibitPortable;
 }

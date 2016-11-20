@@ -45,8 +45,6 @@ export default class NibitPortable extends Component {
 
 }
 
-module.exports = NibitPortable;
-
 if (window) {
     window.NibitPortable = NibitPortable;
 }

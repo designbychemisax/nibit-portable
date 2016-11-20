@@ -140,8 +140,6 @@
 	exports.default = NibitPortable;
 
 
-	module.exports = NibitPortable;
-
 	if (window) {
 	    window.NibitPortable = NibitPortable;
 	}

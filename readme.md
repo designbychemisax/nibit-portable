@@ -11,10 +11,10 @@ npm i --save nibit-portable
 ### usage
 
 ```javascript
-<Nibit
+<NibitPortable
+    blocks={this.state.blocks}
     onChange={blocks => this.setState({blocks})}
     config={config}
-    blocks={this.state.blocks}
 />
 ```
 
@@ -31,7 +31,7 @@ npm i --save nibit-portable
 ]
 ```
 
-#config format
+##config format
 ```javascript
 [
     {

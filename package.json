@@ -2,7 +2,7 @@
   "name": "nibit-portable",
   "version": "0.1.4",
   "description": "An instruction organizer react plugin based on js.bit",
-  "main": "src/index.js",
+  "main": "dist/nibit-portable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --colors"

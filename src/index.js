@@ -3,12 +3,12 @@ import Toolbox          from './components/Toolbox';
 import BlockSelector    from './components/BlockSelector';
 import BlockEditor      from './components/BlockEditor';
 
-export default class NibitPortable extends Component {
+class NibitPortable extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selector : false
+            selector: false
         };
         this.handleAddBlock = this.handleAddBlock.bind(this);
     }
@@ -17,13 +17,13 @@ export default class NibitPortable extends Component {
         let blocks = [...this.props.blocks];
         blocks.push(block);
         this.props.onChange(blocks);
-        this.setState({selector:false});
+        this.setState({selector: false});
     }
 
     render() {
         let {config, blocks} = this.props;
         let {selector} = this.state;
-        return(
+        return (
             <div className="NibitPortable__Main">
                 <BlockSelector
                     visible={selector}
@@ -42,9 +42,6 @@ export default class NibitPortable extends Component {
             </div>
         )
     }
-
 }
 
-if (window) {
-    window.NibitPortable = NibitPortable;
-}
+export default NibitPortable;

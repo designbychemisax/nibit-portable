@@ -8,12 +8,14 @@ var config = {
     debug : true,
     entry : "./src/index.js",
     output : {
+        library: 'NibitPortable',
+        libraryTarget: 'umd',
         filename : "./dist/nibit-portable.js"
     },
-    //externals: {
-    //    "react": "React",
-    //    "react-dom" : "ReactDOM"
-    //},
+    externals: {
+        "react": "React",
+        "react-dom" : "ReactDOM"
+    },
     module : {
         loaders : [
             {
@@ -25,14 +27,7 @@ var config = {
     },
     resolve: {
         extensions: ['.js', '']
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('development')
-            }
-        })
-    ]
+    }
 };
 
 module.exports = config;

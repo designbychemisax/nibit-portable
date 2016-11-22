@@ -251,7 +251,6 @@
         },
 
         render : function () {
-            console.log("rn");
             var props = {
                 config : config,
                 blocks : this.state.blocks.map(function (block) {
@@ -259,7 +258,7 @@
                 }),
                 onChange: this.handleChange
             };
-            return React.createElement(NibitPortable, props);
+            return React.createElement(NibitPortable.default, props);
         }
     });
 

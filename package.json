@@ -1,11 +1,12 @@
 {
   "name": "nibit-portable",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An instruction organizer react plugin based on js.bit",
   "main": "dist/nibit-portable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --colors"
+    "build": "webpack --colors",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,13 +21,6 @@
   "license": "MIT",
   "homepage": "https://nibit.chemisax.com",
   "dependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "webpack": "^1.13.3",
-    "babel-plugin-transform-object-rest-spread": "^6.19.0",
-    "webpack-dev-server": "^1.16.2",
     "lodash": "^4.16.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
@@ -35,5 +29,14 @@
     "is_js": "^0.9.0",
     "react-dragula": "^1.1.17",
     "react-infinite": "^0.10.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^1.13.3",
+    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }

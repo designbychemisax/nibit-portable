@@ -1,6 +1,6 @@
 {
   "name": "nibit-portable",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "An instruction organizer react plugin based on js.bit",
   "main": "dist/nibit-portable.js",
   "scripts": {

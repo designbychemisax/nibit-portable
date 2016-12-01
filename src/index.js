@@ -21,7 +21,7 @@ class NibitPortable extends Component {
     }
 
     render() {
-        let {config, blocks} = this.props;
+        let {config, blocks, maxBlocks} = this.props;
         let {selector} = this.state;
         return (
             <div className="NibitPortable__Main">
@@ -32,6 +32,8 @@ class NibitPortable extends Component {
                     onClose={() => this.setState({selector:false})}
                 />
                 <Toolbox
+                    maxBlocks={maxBlocks}
+                    count={blocks.length}
                     onAddBlock={() => this.setState({selector:true})}
                 />
                 <BlockEditor

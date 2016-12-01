@@ -116,7 +116,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            var _props = this.props,
 	                config = _props.config,
-	                blocks = _props.blocks;
+	                blocks = _props.blocks,
+	                maxBlocks = _props.maxBlocks;
 	            var selector = this.state.selector;
 
 	            return React.createElement(
@@ -131,6 +132,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                }),
 	                React.createElement(_Toolbox2.default, {
+	                    maxBlocks: maxBlocks,
+	                    count: blocks.length,
 	                    onAddBlock: function onAddBlock() {
 	                        return _this2.setState({ selector: true });
 	                    }
@@ -159,7 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -190,20 +193,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    _createClass(Toolbox, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
+	            var _props = this.props,
+	                maxBlocks = _props.maxBlocks,
+	                count = _props.count;
+
+	            var add = typeof maxBlocks == 'number' ? count < maxBlocks : true;
+
 	            return React.createElement(
-	                "div",
-	                { className: "NibitPortable__ToolBox" },
-	                React.createElement("a", { className: "NibitPortable__PoweredLogo", href: "http://nibit.chemisax.com", target: "_blank" }),
+	                'div',
+	                { className: 'NibitPortable__ToolBox' },
+	                React.createElement('a', { className: 'NibitPortable__PoweredLogo', href: 'http://nibit.chemisax.com', target: '_blank' }),
 	                React.createElement(
-	                    "ul",
-	                    { className: "NibitPortable__ToolBoxButtons" },
-	                    React.createElement(
-	                        "li",
-	                        { id: "addBlock" },
-	                        React.createElement("button", { className: "NibitPortable__ToolBoxButton--add", onClick: this.props.onAddBlock })
-	                    )
+	                    'ul',
+	                    { className: 'NibitPortable__ToolBoxButtons' },
+	                    add ? React.createElement(
+	                        'li',
+	                        { id: 'addBlock' },
+	                        React.createElement('button', { className: 'NibitPortable__ToolBoxButton--add', onClick: this.props.onAddBlock })
+	                    ) : null
 	                )
 	            );
 	        }

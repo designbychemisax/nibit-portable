@@ -29,10 +29,12 @@ export default class BlockCard extends Component {
     }
 
     render() {
-        let {name, description, color} = this.props;
+        let {name, description, color, icon} = this.props;
+        
         return (
             <div className="NibitPortable__BlockCard" onClick={this.handleClick}>
                 <div className="NibitPortable__BlockCardName">
+                    {icon ? <span><i className={icon} /></span> : null}
                     {name}
                 </div>
                 <div className="NibitPortable__BlockCardDescription">

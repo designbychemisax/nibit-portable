@@ -3049,6 +3049,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                React.createElement(
 	                    'div',
 	                    { className: 'NibitPortable__BlockTitle' },
+	                    config.icon ? React.createElement(
+	                        'span',
+	                        null,
+	                        React.createElement('i', { className: config.icon })
+	                    ) : null,
 	                    config.name || "Unkwnown block",
 	                    React.createElement(
 	                        'ul',

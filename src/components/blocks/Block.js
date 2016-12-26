@@ -113,6 +113,7 @@ export default class Block extends Component {
         return (
             <div className="NibitPortable__Block" data-index={index} style={blockStyle} onClick={this.handleClick}>
                 <div className="NibitPortable__BlockTitle">
+                    {config.icon ? <span><i className={config.icon} /></span> : null}
                     {config.name || "Unkwnown block"}
                     <ul className="NibitPortable__BlockToolbox">
                         {config.params ?

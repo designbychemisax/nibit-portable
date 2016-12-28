@@ -7,13 +7,13 @@ export default class Block extends Component {
     }
 
     render() {
-        let {name, description, details, color, textColor, icon, docLink, params} = this.props;
+        let {name, details, color, textColor, docLink, params, onClose} = this.props;
 
         return (
             <div className="NibitPortable__BlockHelp">
-              <div className="NibitPortable__BlockHelpHeader">
+              <div className="NibitPortable__BlockHelpHeader" style={{backgroundColor:color, color: textColor}}>
                   <div className="NibitPortable__BlockHelpTitle">{name}</div>
-                  <div className="NibitPortable__BlockHelpClose">x</div>
+                  <div className="NibitPortable__BlockHelpClose"><button onClick={onClose}>x</button></div>
               </div>
               <div className="NibitPortable__BlockHelpContent">
                   {details ? <div className="NibitPortable__BlockHelpDetails">{details}</div> : null}
@@ -30,7 +30,7 @@ export default class Block extends Component {
                       :null}
                     </ul>
                   </div>
-                  {docLink ? <a className="NibitPortable__BlockHelpMoreLink" href={docLink}>more.</a> : null}
+                  {docLink ? <a target="_blank" className="NibitPortable__BlockHelpMoreLink" href={docLink}>more</a> : null}
               </div>
             </div>
         );

@@ -233,6 +233,73 @@
   padding-left: 5px;
   margin-bottom: 5px; }
 
+.NibitPortable__BlockHelp {
+  max-width: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  font-family: 'Signika', sans-serif;
+  font-weight: 300; }
+.NibitPortable__BlockHelpHeader {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding: 5px; }
+.NibitPortable__BlockHelpTitle {
+  display: -webkit-flex;
+  display: flex;
+  flex: 1;
+  font-size: 17px; }
+.NibitPortable__BlockHelpContent {
+  color: #636363;
+  padding: 5px;
+  font-size: 15px; }
+.NibitPortable__BlockHelpParams {
+  margin-top: 5px; }
+  .NibitPortable__BlockHelpParams ul {
+    margin: 0;
+    padding: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-top: 5px; }
+  .NibitPortable__BlockHelpParams li {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding: 4px 0 4px 0; }
+.NibitPortable__BlockHelpParamsTitle {
+  color: #2f2f2f;
+  font-weight: 400; }
+.NibitPortable__BlockHelpParamLabel {
+  font-weight: 400;
+  width: 70px;
+  max-width: 70px;
+  min-width: 70px;
+  margin-right: 5px; }
+.NibitPortable__BlockHelpMoreLink {
+  color: #2f2f2f;
+  text-decoration: none;
+  text-align: right; }
+  .NibitPortable__BlockHelpMoreLink:hover {
+    color: #2f2f2f;
+    text-decoration: underline; }
+.NibitPortable__BlockHelpClose > button {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center; }
+
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;

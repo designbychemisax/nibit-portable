@@ -107,9 +107,11 @@ export default class BlockEditor extends Component {
                 <div style={{width:'100%', height: '100%'}} ref="dragula">
                     {this.renderBlocks()}
                 </div>
-                <ToolTip active={this.state.help} tooltipTimeout={0} group="help" position="bottom" arrow="center" parent={this.state.tooltip} style={{style:{zIndex:9999}, arrowStyle:{}}}>
-                    <BlockHelp {...this.state.helpContents} />
-                </ToolTip>
+                {this.state.help ?
+                    <ToolTip active={true} tooltipTimeout={500} group="help" position="bottom" arrow="center" parent={this.state.tooltip} style={{style:{zIndex:9999, padding:0, boxShadow : 'rgba(0, 0, 0, 0.2) 0px 0px 2px'}, arrowStyle:{ color: this.state.helpContents.color, borderColor: false}}}>
+                        <BlockHelp {...this.state.helpContents} onClose={() => this.hideHelp()} />
+                    </ToolTip>
+                : null}
             </div>
         );
     }

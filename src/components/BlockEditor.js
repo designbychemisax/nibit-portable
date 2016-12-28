@@ -1,21 +1,47 @@
 import {Component}  from 'react';
 import Block        from './blocks/Block';
+import BlockHelp    from './blocks/BlockHelp';
 import Dragula      from 'react-dragula';
 import ReactDOM     from 'react-dom';
+import ToolTip      from 'react-portal-tooltip'
+
 
 export default class BlockEditor extends Component {
-    
+
     constructor(props) {
         super(props);
+        this.state = {
+          help : false,
+          tooltip: '#nibitBlockEditor',
+          helpContents: {}
+        };
         this.renderBlocks = this.renderBlocks.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.setDrag = this.setDrag.bind(this);
         this.handleDragEnd = this.handleDragEnd.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.showHelp = this.showHelp.bind(this);
     }
 
     componentDidMount() {
         this.setDrag();
+    }
+
+    showHelp(index) {
+        let {blocks, config} = this.props;
+        let type = blocks[index].type;
+        let block = config.find(b => b.type == type);
+        let parent = `#nibitBlock-${index}-help`;
+
+        if (parent == this.state.tooltip && this.state.help) {
+          this.hideHelp();
+        } else {
+          this.setState({help: true, tooltip: parent, helpContents: block});
+        }
+    }
+
+    hideHelp() {
+        this.setState({help: false});
     }
 
     setDrag() {
@@ -58,28 +84,32 @@ export default class BlockEditor extends Component {
             this.props.onChange(blocks);
         }
     }
-    
+
     renderBlocks() {
         let {blocks, config} = this.props;
         return blocks.map((block,index) => {
-            let blockProps = { 
+            let blockProps = {
                 key : `${block.type}_${index}`,
                 ...block,
                 index,
                 config: config.find(b => b.type == block.type) || {},
                 onChange: this.handleChange,
-                onDelete: this.handleDelete
+                onDelete: this.handleDelete,
+                onHelp: this.showHelp
             };
             return <Block {...blockProps} />
-        });    
+        });
     }
-    
+
     render() {
         return (
-            <div className="NibitPortable__Editor" ref="editor">
+            <div className="NibitPortable__Editor" id="nibitBlockEditor" ref="editor">
                 <div style={{width:'100%', height: '100%'}} ref="dragula">
                     {this.renderBlocks()}
                 </div>
+                <ToolTip active={this.state.help} tooltipTimeout={0} group="help" position="bottom" arrow="center" parent={this.state.tooltip} style={{style:{zIndex:9999}, arrowStyle:{}}}>
+                    <BlockHelp {...this.state.helpContents} />
+                </ToolTip>
             </div>
         );
     }

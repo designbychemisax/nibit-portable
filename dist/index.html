@@ -19,13 +19,16 @@
             name : 'Send Message',
             type : 'send_message',
             description: 'Send a message to slack.',
+            details: 'This block is used to send a message to a slack user or to a slack channel.',
             color: '#52cf67',
             textColor: '#ffffff',
+            docLink: 'http://pickupon.io',
             params: [
                 {
                     name : 'to',
                     type : 'pulldown_other',
                     label : 'To',
+                    description: 'Recipent of the message.',
                     options: [
                         {
                             label: "Source",
@@ -44,13 +47,15 @@
                 {
                     name: 'message',
                     type: 'text',
-                    label: 'Message'
+                    label: 'Message',
+                    description: 'Text of the message. You can use placeholders like %nickname or %body.',
                 },
                 {
                     name: 'delay',
                     type: 'text',
                     label: 'Delay',
-                    default: '100'
+                    default: '100',
+                    description: 'Miliseconds until this message is sent.',
                 }
             ]
         },

@@ -9,12 +9,16 @@ export default class Block extends Component {
         super(props);
         this.state = {
             ...this.calculateColors(props),
-            open : true,
-            description: false
+            open : true
         };
         this.handleToggleForm = this.handleToggleForm.bind(this);
         this.renderForm = this.renderForm.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleOnHelp = this.handleOnHelp.bind(this);
+    }
+
+    handleOnHelp() {
+        this.props.onHelp(this.props.index);
     }
 
     handleToggleForm() {
@@ -94,7 +98,7 @@ export default class Block extends Component {
     }
 
     render() {
-        let {handleToggleForm, renderForm} = this;
+        let {handleToggleForm, renderForm, handleOnHelp} = this;
         let {open, baseColor, textColor, lightColor, darkColor} = this.state;
         let {config, index} = this.props;
 
@@ -116,11 +120,19 @@ export default class Block extends Component {
                     {config.icon ? <span><i className={config.icon} /></span> : null}
                     {config.name || "Unkwnown block"}
                     <ul className="NibitPortable__BlockToolbox">
+
+                        {config.params ?
+                            <li>
+                                <button style={buttonStyle} id={`nibitBlock-${index}-help`} onClick={handleOnHelp}>?</button>
+                            </li>
+                        :null}
+
                         {config.params ?
                             <li>
                                 <button style={buttonStyle} onClick={handleToggleForm}>-</button>
                             </li>
-                            :null}
+                        :null}
+
                         <li>
                             <button style={buttonStyle} onClick={this.handleDelete}>
                                 x

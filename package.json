@@ -21,14 +21,14 @@
   "license": "MIT",
   "homepage": "https://nibit.chemisax.com",
   "dependencies": {
+    "color": "^0.11.4",
+    "is_js": "^0.9.0",
     "lodash": "^4.16.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-portal-tooltip": "^1.1.5",
-    "color": "^0.11.4",
-    "is_js": "^0.9.0",
     "react-dragula": "^1.1.17",
-    "react-infinite": "^0.10.0"
+    "react-infinite": "^0.10.0",
+    "react-portal-tooltip": "^1.1.5"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",

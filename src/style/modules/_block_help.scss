@@ -4,9 +4,6 @@
 .#{$PROJECT} {
 
   &__BlockHelp {
-    max-width: 300px;
-    max-height: 300px;
-    overflow-y: scroll;
     font-family: 'Signika', sans-serif;
     font-weight: 300;
   }
@@ -24,6 +21,9 @@
   }
 
   &__BlockHelpContent {
+    width: 280px;
+    max-height: 150px;
+    overflow-y: scroll;
     color: #636363;
     padding: 5px;
     font-size: 15px;
@@ -61,14 +61,18 @@
   }
 
   &__BlockHelpMoreLink {
-    color: #2f2f2f;
+    color: #2346c3;
     text-decoration: none;
     text-align: right;
 
     &:hover {
-      color: #2f2f2f;
+      color: #2346c3;
       text-decoration: underline;
     }
+  }
+
+  &__BlockHelpMoreLinkContainer {
+    text-align: right;
   }
 
   &__BlockHelpClose > button {

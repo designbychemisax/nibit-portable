@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --colors",
-    "prepublish": "npm run build"
+    "build-style" : "sass .\\src\\style\\nibit.portable.scss:.\\dist\\nibit.portable.css",
+    "build-style-watch" : "sass --watch .\\src\\style\\nibit.portable.scss:.\\dist\\nibit.portable.css",
+    "prepublish": "npm run build && npm run build-style"
   },
   "repository": {
     "type": "git",

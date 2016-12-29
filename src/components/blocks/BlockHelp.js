@@ -30,7 +30,7 @@ export default class Block extends Component {
                       :null}
                     </ul>
                   </div>
-                  {docLink ? <a target="_blank" className="NibitPortable__BlockHelpMoreLink" href={docLink}>more</a> : null}
+                  {docLink ? <div className="NibitPortable__BlockHelpMoreLinkContainer"><a target="_blank" className="NibitPortable__BlockHelpMoreLink" href={docLink}>Read more ></a></div> : null}
               </div>
             </div>
         );
